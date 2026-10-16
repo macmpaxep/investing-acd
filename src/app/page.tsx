@@ -1,6 +1,7 @@
 import Reveal from "@/components/Reveal";
 import Faq from "@/components/Faq";
 import LeadForm from "@/components/LeadForm";
+import FloatingDice from "@/components/FloatingDice";
 import {
   brand,
   price,
@@ -334,22 +335,27 @@ export default function Home() {
           <div className="glow glow-c" />
           <div className="container price-grid">
             <Reveal>
-              <span className="eyebrow">Стоимость</span>
-              <h2>Год обучения и сопровождения + библиотека навсегда</h2>
-              <ul className="price-list">
-                <li><Tick /> 5 модулей программы на 12 месяцев</li>
-                <li><Tick /> Эфиры, чат и куратор весь год</li>
-                <li><Tick /> Проверка заданий и разбор портфеля</li>
-                <li><Tick /> Пожизненный доступ к авторским материалам</li>
-              </ul>
+              <div className="price-copy">
+                <span className="eyebrow">Стоимость</span>
+                <h2>Год обучения и сопровождения + библиотека навсегда</h2>
+                <ul className="price-list">
+                  <li><Tick /> 5 модулей программы на 12 месяцев</li>
+                  <li><Tick /> Эфиры, чат и куратор весь год</li>
+                  <li><Tick /> Проверка заданий и разбор портфеля</li>
+                  <li><Tick /> Пожизненный доступ к авторским материалам</li>
+                </ul>
+                <FloatingDice />
+              </div>
             </Reveal>
             <Reveal delay={120}>
               <div className="price-card">
                 <span className="badge">Полный доступ</span>
                 <div className="price-row">
                   <b>{price.current}</b>
+                  <span className="instead">вместо</span>
                   <s>{price.old}</s>
                 </div>
+                <p className="offer-until"><span className="excl" aria-hidden>!</span>Скидка действует только до 30 октября</p>
                 <LeadForm />
                 <p className="fine">{price.note}</p>
               </div>

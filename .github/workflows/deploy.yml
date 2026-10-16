@@ -21,4 +21,11 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script_stop: true
-          script: bash /var/www/unibp/deploy/deploy.sh
+          script: |
+            set -e
+            cd /var/www/unibp
+            git fetch origin main
+            git reset --hard origin/main
+            npm ci
+            npm run build
+            pm2 reload unibp --update-env

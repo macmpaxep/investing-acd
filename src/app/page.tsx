@@ -113,9 +113,9 @@ export default function Home() {
           <div className="container hero-grid">
             <div>
               <span className="eyebrow">Обучение + сопровождение на 12 месяцев</span>
-               <h1>
+               <h2>
                 Университет нового поколения <em>международного образца</em>
-              </h1>
+              </h2>
               <h3>
                 Фундаментальное направление: Инвестиции в акции <em>без хаоса</em> и догадок
               </h3>

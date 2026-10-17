@@ -113,6 +113,9 @@ export default function Home() {
           <div className="container hero-grid">
             <div>
               <span className="eyebrow">Обучение + сопровождение на 12 месяцев</span>
+               <h2>
+                Университет нового поколения международного образца
+              </h2>
               <h1>
                 Инвестиции в акции <em>без хаоса</em> и догадок
               </h1>

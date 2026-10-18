@@ -136,6 +136,8 @@ export default function Home() {
                 <li><Tick /> Практика на реальных компаниях</li>
                 <li><Tick /> Проверка заданий куратором</li>
                 <li><Tick /> Пожизненный доступ к материалам</li>
+                <li><Tick /> МОН РК оплачивает 90% стоимости обучения</li>
+
               </ul>
             </div>
             <HeroChart />
@@ -358,7 +360,7 @@ export default function Home() {
                   <span className="instead">вместо</span>
                   <s>{price.old}</s>
                 </div>
-                <p className="offer-until"><span className="excl" aria-hidden>!</span>Скидка действует только до 30 октября</p>
+                <p className="offer-until"><span className="excl" aria-hidden>!</span>Заявки по льготной стоимости принимаются до 30 октября</p>
                 <LeadForm />
                 <p className="fine">{price.note}</p>
               </div>

@@ -20,8 +20,8 @@ export const brand = {
 };
 
 export const price = {
-  current: "$500",
-  old: "$1000",
+  current: "$500 | 250.000тг",
+  old: "$5000 | 2.500.000тг",
   note: "Доступ открывается сразу после оплаты.",
 };
 

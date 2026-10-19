@@ -7,7 +7,7 @@ export const brand = {
   nameMain: "Budget Projecting",
   tagline: "Инвестиции в акции: обучение и сопровождение",
   author: "Олжас Мансапов",
-  authorRole: "Инвестор, общее состояние более 450.000$",
+  authorRole: "Инвестор, общее состояние более 750.000$",
   authorFacts: [
     "4 года в инвестициях",
     "Окончил Ege Üniversitesi и University of Edinburgh",

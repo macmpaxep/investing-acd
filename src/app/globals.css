@@ -171,7 +171,7 @@ p { color: var(--muted); }
 .price-list { display: grid; gap: 1rem; margin-top: 1.5rem; font-size: 1.05rem; color: var(--text); }
 .price-card { padding: 34px; border-radius: 28px; background: var(--surface-2); border: 1px solid rgba(200, 245, 96, .4); box-shadow: 0 40px 90px -40px rgba(200, 245, 96, .35); }
 .price-row { display: flex; align-items: baseline; gap: 14px; }
-.price-row b { font-family: var(--font-sans), sans-serif; font-size: 2.6rem; line-height: 1; }
+.price-row b { font-family: var(--font-sans), sans-serif; font-size: 2.4rem; line-height: 1; }
 .price-row .instead { color: var(--muted); font-size: 1rem; }
 .price-row s { color: var(--muted); font-size: 1.7rem; font-weight: 600; line-height: 1; text-decoration-thickness: 2px; text-decoration-color: #ff6b5e; }
 .price-row { margin-bottom: 1.2rem; flex-wrap: wrap; }

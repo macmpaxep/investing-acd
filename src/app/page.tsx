@@ -127,7 +127,7 @@ export default function Home() {
               </p>
               <div className="hero-cta">
                 <a href="#price" className="btn btn-accent">
-                  Выбрать участие
+                  Поступить
                 </a>
                 <a href="#program" className="btn btn-ghost">
                   Смотреть программу
@@ -137,8 +137,6 @@ export default function Home() {
                 <li><Tick /> Практика на реальных компаниях</li>
                 <li><Tick /> Проверка заданий куратором</li>
                 <li><Tick /> Пожизненный доступ к материалам</li>
-                <li><Tick /> МОН РК оплачивает 90% стоимости обучения</li>
-
               </ul>
             </div>
             <HeroChart />
@@ -394,7 +392,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={120}>
               <div className="price-card">
-                <span className="badge">Полный доступ</span>
+                <span className="badge">Поступление в университет</span>
                 <div className="price-row">
                   <b>{price.current}</b>
                   <span className="instead">вместо</span>

@@ -75,6 +75,8 @@ function HeroChart() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img className="shot shot-a" src="/portfolio.jpg" alt="Стоимость портфеля и график доходности" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="shot shot-c" src="/trade.jpg" alt="Закрытая сделка по IONQ" />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img className="shot shot-b" src="/positions.jpg" alt="Позиции в портфеле" />
     </div>
   );

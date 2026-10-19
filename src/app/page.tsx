@@ -379,7 +379,7 @@ export default function Home() {
           <div className="container price-grid">
             <Reveal>
               <div className="price-copy">
-                <span className="eyebrow">Стоимость</span>
+                <span className="eyebrow">Оставить заявку на поступление</span>
                 <h2>Год обучения и сопровождения + библиотека навсегда</h2>
                 <ul className="price-list">
                   <li><Tick /> 5 модулей программы на 12 месяцев</li>
@@ -392,12 +392,14 @@ export default function Home() {
             </Reveal>
             <Reveal delay={120}>
               <div className="price-card">
-                <span className="badge">Поступление в университет</span>
-                <div className="price-row">
-                  <b>{price.current}</b>
-                  <span className="instead">вместо</span>
-                  <s>{price.old}</s>
-                </div>
+                <span className="badge">Запись</span>
+                {price.show && (
+                  <div className="price-row">
+                    <b>{price.current}</b>
+                    <span className="instead">вместо</span>
+                    <s>{price.old}</s>
+                  </div>
+                )}
                 <p className="offer-until"><span className="excl" aria-hidden>!</span>Заявки по льготной стоимости принимаются до 30 октября</p>
                 <LeadForm />
                 <p className="fine">{price.note}</p>

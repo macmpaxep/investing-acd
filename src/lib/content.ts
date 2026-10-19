@@ -20,7 +20,9 @@ export const brand = {
   telegram: "https://t.me/vecceo",
 };
 
+// show: false — цены скрыты на сайте; поставьте true, чтобы вернуть.
 export const price = {
+  show: false,
   current: "$1000 | 450.000тг",
   old: "$10.000 | 4.500.000тг",
   note: "Доступ открывается сразу после оплаты.",
@@ -31,7 +33,7 @@ export const nav = [
   { href: "#support", label: "Сопровождение" },
   { href: "#izmir", label: "Где учимся" },
   { href: "#lifetime", label: "Материалы навсегда" },
-  { href: "#price", label: "Стоимость" },
+  { href: "#price", label: "Поступить" },
   { href: "#faq", label: "Вопросы" },
 ];
 

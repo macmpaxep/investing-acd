@@ -94,7 +94,7 @@ export default function Home() {
             </span>
           </a>
           <nav className="nav">
-            {nav.map((n) => (
+            {nav.filter((n) => location.show || n.href !== "#izmir").map((n) => (
               <a key={n.href} href={n.href}>
                 {n.label}
               </a>
@@ -234,43 +234,45 @@ export default function Home() {
         </section>
 
         {/* IZMIR */}
-        <section className="section section-alt" id="izmir">
-          <div className="container">
-            <Reveal>
-              <span className="eyebrow">{location.eyebrow}</span>
-              <h2 className="wide">{location.title}</h2>
-              <p className="sub">{location.text}</p>
-              <ul className="chips">
-                {location.chips.map((c) => (
-                  <li key={c}>{c}</li>
-                ))}
-              </ul>
-            </Reveal>
-            <div className="mosaic">
-              <Reveal className="m-campus">
-                <figure>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/izmir/campus.jpg" alt="Кампус Эгейского университета с высоты" width={1024} height={536} />
-                  <figcaption>Кампус Эгейского университета</figcaption>
-                </figure>
+        {location.show && (
+          <section className="section section-alt" id="izmir">
+            <div className="container">
+              <Reveal>
+                <span className="eyebrow">{location.eyebrow}</span>
+                <h2 className="wide">{location.title}</h2>
+                <p className="sub">{location.text}</p>
+                <ul className="chips">
+                  {location.chips.map((c) => (
+                    <li key={c}>{c}</li>
+                  ))}
+                </ul>
               </Reveal>
-              <Reveal delay={100} className="m-city">
-                <figure>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/izmir/izmir.jpg" alt="Набережная Измира и Эгейское море" width={1000} height={1328} />
-                  <figcaption>Измир, набережная</figcaption>
-                </figure>
-              </Reveal>
-              <Reveal delay={200} className="m-room">
-                <figure>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/izmir/room.jpg" alt="Комната для проживания" width={1005} height={624} />
-                  <figcaption>Проживание</figcaption>
-                </figure>
-              </Reveal>
+              <div className="mosaic">
+                <Reveal className="m-campus">
+                  <figure>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/izmir/campus.jpg" alt="Кампус Эгейского университета с высоты" width={1024} height={536} />
+                    <figcaption>Кампус Эгейского университета</figcaption>
+                  </figure>
+                </Reveal>
+                <Reveal delay={100} className="m-city">
+                  <figure>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/izmir/izmir.jpg" alt="Набережная Измира и Эгейское море" width={1000} height={1328} />
+                    <figcaption>Измир, набережная</figcaption>
+                  </figure>
+                </Reveal>
+                <Reveal delay={200} className="m-room">
+                  <figure>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/izmir/room.jpg" alt="Комната для проживания" width={1005} height={624} />
+                    <figcaption>Проживание</figcaption>
+                  </figure>
+                </Reveal>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* LIFETIME */}
         <section className="section lifetime on-dark" id="lifetime">

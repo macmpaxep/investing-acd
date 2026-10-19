@@ -14,10 +14,29 @@ const display = localFont({
   weight: "400",
 });
 
+const title = "University of Budget Projecting — обучение инвестициям в акции на 12 месяцев";
+const description =
+  "Год обучения и сопровождения по инвестициям в акции с куратором и пожизненный доступ к авторским материалам.";
+
 export const metadata: Metadata = {
-  title: "University of Budget Projecting — обучение инвестициям в акции на 12 месяцев",
-  description:
-    "Год обучения и сопровождения по инвестициям в акции с куратором и пожизненный доступ к авторским материалам.",
+  metadataBase: new URL("https://unibp.cc"),
+  title,
+  description,
+  openGraph: {
+    type: "website",
+    url: "https://unibp.cc",
+    siteName: "University of Budget Projecting",
+    locale: "ru_RU",
+    title,
+    description,
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "University of Budget Projecting" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/og.png"],
+  },
 };
 
 export const viewport: Viewport = {

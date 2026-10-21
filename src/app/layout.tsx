@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     locale: "ru_RU",
     title,
     description,
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "University of Budget Projecting" }],
+    images: [{ url: "/og.png?v=3", width: 1200, height: 630, alt: "University of Budget Projecting" }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og.png"],
+    images: ["/og.png?v=3"],
   },
 };
 

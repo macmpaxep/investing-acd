@@ -13,6 +13,7 @@ import {
   lifetime,
   steps,
   location,
+  reviews,
   forWhom,
   disclaimer,
 } from "@/lib/content";
@@ -411,6 +412,34 @@ export default function Home() {
             </Reveal>
           </div>
         </section>
+
+        {/* REVIEWS */}
+        {reviews.show && (
+          <section className="section section-alt" id="reviews">
+            <div className="container">
+              <Reveal>
+                <span className="eyebrow">{reviews.eyebrow}</span>
+                <h2>{reviews.title}</h2>
+              </Reveal>
+              <div className="grid-2 reviews">
+                {reviews.items.map((r, i) => (
+                  <Reveal key={`${r.name}-${i}`} delay={i * 90}>
+                    <figure className="review card">
+                      <blockquote>{r.text}</blockquote>
+                      <figcaption>
+                        <span className="avatar" aria-hidden>{r.name.replace(/[^\p{L}]/gu, "").charAt(0)}</span>
+                        <span>
+                          <b>{r.name}</b>
+                          <small>{r.city}</small>
+                        </span>
+                      </figcaption>
+                    </figure>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* FAQ */}
         <section className="section" id="faq">

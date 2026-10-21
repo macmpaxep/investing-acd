@@ -188,7 +188,7 @@ export default function Home() {
           <div className="container">
             <Reveal>
               <span className="eyebrow">Программа</span>
-              <h2>Пять модулей за год. От основ до самостоятельности</h2>
+              <h2>Шесть модулей за год. От основ до самостоятельности</h2>
             </Reveal>
             <div className="timeline">
               {modules.map((m, i) => (
@@ -405,7 +405,7 @@ export default function Home() {
                 <span className="eyebrow">Оставить заявку на поступление</span>
                 <h2>Год обучения и сопровождения + библиотека навсегда</h2>
                 <ul className="price-list">
-                  <li><Tick /> 5 модулей программы на 12 месяцев</li>
+                  <li><Tick /> 6 модулей программы на 12 месяцев</li>
                   <li><Tick /> Эфиры, чат и куратор весь год</li>
                   <li><Tick /> Проверка заданий и разбор портфеля</li>
                   <li><Tick /> Пожизненный доступ к авторским материалам</li>

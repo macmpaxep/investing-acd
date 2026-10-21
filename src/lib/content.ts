@@ -254,6 +254,8 @@ export const tariffs = {
       name: "Премиум",
       note: "Максимум внимания",
       highlight: true,
+      discount: "Скидка -43%",
+      oldPrice: "420 000 ₸",
       price: "240 000 ₸",
       period: "в год",
       perMonth: "≈ 20 000 ₸ / $45 в месяц",

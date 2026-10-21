@@ -336,3 +336,7 @@ h2.wide { max-width: 30ch; }
 .plan-permonth { display: inline-block; margin: -.6rem 0 1.3rem; padding: .3rem .8rem; border-radius: 999px; background: rgba(200, 245, 96, .14); border: 1px solid rgba(200, 245, 96, .4); color: var(--lime); font-size: .85rem; font-weight: 700; }
 .plan-bonus { display: flex; gap: .7rem; align-items: flex-start; margin: -.6rem 0 1.6rem; padding: 14px 16px; border-radius: 14px; background: linear-gradient(135deg, rgba(200, 245, 96, .22), rgba(200, 245, 96, .06)); border: 1px solid rgba(200, 245, 96, .45); color: #f2fbe0; font-weight: 700; line-height: 1.4; box-shadow: 0 10px 24px -14px rgba(200, 245, 96, .5); }
 .plan-bonus svg { flex: none; margin-top: 2px; color: var(--lime); }
+
+.plan-badge-sale { top: 54px; background: #ff6b5e; color: #fff; box-shadow: 0 8px 18px -8px rgba(255, 107, 94, .8); }
+
+.plan-old { display: block; margin-bottom: .15rem; font-size: 1.15rem; font-weight: 600; color: #8fb3a3; text-decoration-thickness: 2px; text-decoration-color: #ff6b5e; }

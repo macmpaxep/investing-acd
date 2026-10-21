@@ -13,11 +13,15 @@ export default function Tariffs() {
       {tariffs.plans.map((p) => (
         <article key={p.id} id={`plan-${p.id}`} className={`plan ${p.highlight ? "plan-hot" : ""}`}>
           {p.highlight && <span className="plan-badge">Популярный</span>}
+          {"discount" in p && p.discount && <span className="plan-badge plan-badge-sale">{p.discount}</span>}
           <h3>{p.name}</h3>
           <p className="plan-note">{p.note}</p>
           {tariffs.showPrices && (
             <div className="plan-price">
-              {p.price} <small>{p.period}</small>
+              {"oldPrice" in p && p.oldPrice && <s className="plan-old">{p.oldPrice}</s>}
+              <span>
+                {p.price} <small>{p.period}</small>
+              </span>
             </div>
           )}
           {tariffs.showPrices && "perMonth" in p && p.perMonth && <span className="plan-permonth">{p.perMonth}</span>}

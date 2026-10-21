@@ -295,7 +295,7 @@ export default function Home() {
                 Через год сопровождение закончится, а инструменты, которыми вы пользовались,
                 продолжат работать. Без подписки и доплат.
               </p>
-              <a href="#price" className="btn btn-accent">Получить доступ</a>
+              <ScrollLink to="plan-premium" className="btn btn-accent">Получить доступ</ScrollLink>
             </Reveal>
             <Reveal delay={120}>
               <div className="vault">

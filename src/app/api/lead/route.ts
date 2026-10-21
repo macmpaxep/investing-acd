@@ -19,10 +19,18 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false }, { status: 500 });
   }
 
+  const PLANS: Record<string, string> = {
+    start: "Подписка «Старт»",
+    club: "Подписка «Клуб»",
+    premium: "Подписка «Премиум»",
+  };
+  const plan = PLANS[typeof body?.plan === "string" ? body.plan : ""] ?? "Обучение (поступление)";
+
   const text =
     `<b>Новая заявка University of Budget Projecting</b>\n` +
     `Имя: ${esc(name)}\n` +
-    `Контакт: ${esc(contact)}`;
+    `Контакт: ${esc(contact)}\n` +
+    `Интересует: ${esc(plan)}`;
 
   const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: "POST",

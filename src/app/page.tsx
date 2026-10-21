@@ -1,6 +1,7 @@
 import Reveal from "@/components/Reveal";
 import Faq from "@/components/Faq";
 import LeadForm from "@/components/LeadForm";
+import Tariffs from "@/components/Tariffs";
 import FloatingDice from "@/components/FloatingDice";
 import {
   brand,
@@ -14,6 +15,7 @@ import {
   steps,
   location,
   reviews,
+  tariffs,
   forWhom,
   disclaimer,
 } from "@/lib/content";
@@ -377,6 +379,22 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* TARIFFS */}
+        {tariffs.show && (
+          <section className="section" id="tariffs">
+            <div className="container">
+              <Reveal>
+                <span className="eyebrow">{tariffs.eyebrow}</span>
+                <h2>{tariffs.title}</h2>
+                <p className="sub">{tariffs.sub}</p>
+              </Reveal>
+              <Reveal delay={80}>
+                <Tariffs />
+              </Reveal>
+            </div>
+          </section>
+        )}
 
         {/* PRICE */}
         <section className="section price-section on-dark" id="price">

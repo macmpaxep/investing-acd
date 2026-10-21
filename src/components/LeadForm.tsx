@@ -1,11 +1,18 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 
 type Status = "idle" | "loading" | "done" | "error";
 
 export default function LeadForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const [plan, setPlan] = useState("");
+
+  useEffect(() => {
+    const onPlan = (e: Event) => setPlan((e as CustomEvent<string>).detail);
+    window.addEventListener("plan:select", onPlan);
+    return () => window.removeEventListener("plan:select", onPlan);
+  }, []);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -44,6 +51,15 @@ export default function LeadForm() {
       <label>
         WhatsApp или Telegram
         <input name="contact" required minLength={4} placeholder="@username или номер WhatsApp" />
+      </label>
+      <label>
+        Интересует
+        <select name="plan" value={plan} onChange={(e) => setPlan(e.target.value)}>
+          <option value="">Обучение (поступление)</option>
+          <option value="start">Подписка «Старт»</option>
+          <option value="club">Подписка «Клуб»</option>
+          <option value="premium">Подписка «Премиум»</option>
+        </select>
       </label>
       <label className="check">
         <input type="checkbox" name="consent" required />

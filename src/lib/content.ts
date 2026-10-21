@@ -34,7 +34,6 @@ export const nav = [
   { href: "#izmir", label: "Где учимся" },
   { href: "#lifetime", label: "Материалы навсегда" },
   { href: "#tariffs", label: "Тарифы" },
-  { href: "#price", label: "Поступить" },
   { href: "#faq", label: "Вопросы" },
 ];
 
@@ -254,8 +253,7 @@ export const tariffs = {
     {
       id: "club",
       name: "Клуб",
-      note: "Самый популярный",
-      highlight: true,
+      note: "Больше внимания к вашим сделкам",
       price: { monthly: "[цена] ₸ / мес", yearly: "[цена] ₸ / год" },
       features: [
         "7 сигналов в месяц",
@@ -268,6 +266,7 @@ export const tariffs = {
       id: "premium",
       name: "Премиум",
       note: "Максимум внимания",
+      highlight: true,
       price: { monthly: "[цена] ₸ / мес", yearly: "[цена] ₸ / год" },
       features: [
         "Регулярно 12 сигналов в месяц",

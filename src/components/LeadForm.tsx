@@ -6,7 +6,7 @@ type Status = "idle" | "loading" | "done" | "error";
 
 export default function LeadForm() {
   const [status, setStatus] = useState<Status>("idle");
-  const [plan, setPlan] = useState("");
+  const [plan, setPlan] = useState("premium");
 
   useEffect(() => {
     const onPlan = (e: Event) => setPlan((e as CustomEvent<string>).detail);
@@ -55,7 +55,6 @@ export default function LeadForm() {
       <label>
         Интересует
         <select name="plan" value={plan} onChange={(e) => setPlan(e.target.value)}>
-          <option value="">Обучение (поступление)</option>
           <option value="start">Подписка «Старт»</option>
           <option value="club">Подписка «Клуб»</option>
           <option value="premium">Подписка «Премиум»</option>

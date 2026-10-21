@@ -24,7 +24,7 @@ export async function POST(req: Request) {
     club: "Подписка «Клуб»",
     premium: "Подписка «Премиум»",
   };
-  const plan = PLANS[typeof body?.plan === "string" ? body.plan : ""] ?? "Обучение (поступление)";
+  const plan = PLANS[typeof body?.plan === "string" ? body.plan : ""] ?? PLANS.premium;
 
   const text =
     `<b>Новая заявка University of Budget Projecting</b>\n` +

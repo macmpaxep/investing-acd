@@ -318,3 +318,17 @@ h2.wide { max-width: 30ch; }
 
 .plan-price small { font-size: .95rem; font-weight: 500; color: var(--muted); margin-left: .15rem; }
 .plan-hot .plan-price small { color: #a9c9bb; }
+
+.section-cta { display: flex; justify-content: center; margin-top: 2.5rem; }
+.plan { scroll-margin-top: 90px; }
+@media (min-width: 981px) { .plan-hot { transform: translateY(-14px); } .plan-hot:hover { transform: translateY(-18px); } }
+
+.header .btn-sm { white-space: nowrap; }
+@media (max-width: 420px) {
+  .header .btn-sm { padding: .5rem .8rem; font-size: .82rem; }
+  .header-in { gap: 8px; }
+  .logo { gap: .5rem; }
+  .logo-mark { width: 32px; height: 32px; }
+  .logo-text small { font-size: .55rem; letter-spacing: .16em; }
+  .logo-text b { font-size: .85rem; }
+}

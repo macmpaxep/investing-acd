@@ -11,7 +11,7 @@ export default function Tariffs() {
   return (
     <div className="plans">
       {tariffs.plans.map((p) => (
-        <article key={p.id} className={`plan ${p.highlight ? "plan-hot" : ""}`}>
+        <article key={p.id} id={`plan-${p.id}`} className={`plan ${p.highlight ? "plan-hot" : ""}`}>
           {p.highlight && <span className="plan-badge">Популярный</span>}
           <h3>{p.name}</h3>
           <p className="plan-note">{p.note}</p>

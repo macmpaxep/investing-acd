@@ -2,6 +2,7 @@ import Reveal from "@/components/Reveal";
 import Faq from "@/components/Faq";
 import LeadForm from "@/components/LeadForm";
 import Tariffs from "@/components/Tariffs";
+import ScrollLink from "@/components/ScrollLink";
 import FloatingDice from "@/components/FloatingDice";
 import {
   brand,
@@ -105,9 +106,9 @@ export default function Home() {
               </a>
             ))}
           </nav>
-          <a href="#price" className="btn btn-accent btn-sm">
-            Записаться
-          </a>
+          <ScrollLink to="plan-premium" className="btn btn-accent btn-sm">
+            Посмотреть тарифы
+          </ScrollLink>
         </div>
       </header>
 
@@ -210,6 +211,11 @@ export default function Home() {
                 </Reveal>
               ))}
             </div>
+            <Reveal>
+              <div className="section-cta">
+                <ScrollLink to="plan-premium" className="btn btn-accent">Посмотреть тарифы</ScrollLink>
+              </div>
+            </Reveal>
           </div>
         </section>
 

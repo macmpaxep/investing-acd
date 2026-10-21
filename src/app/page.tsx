@@ -133,7 +133,7 @@ export default function Home() {
               </p>
               <div className="hero-cta">
                 <ScrollLink to="plan-premium" className="btn btn-accent">
-                  Поступить
+                  Подписаться
                 </ScrollLink>
                 <a href="#program" className="btn btn-ghost">
                   Смотреть программу
@@ -408,7 +408,7 @@ export default function Home() {
           <div className="container price-grid">
             <Reveal>
               <div className="price-copy">
-                <span className="eyebrow">Оставить заявку на поступление</span>
+                <span className="eyebrow">Оставить заявку на подписку</span>
                 <h2>Год обучения и сопровождения + библиотека навсегда</h2>
                 <ul className="price-list">
                   <li><Tick /> 6 модулей программы на 12 месяцев</li>

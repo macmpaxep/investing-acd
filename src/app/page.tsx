@@ -429,7 +429,7 @@ export default function Home() {
                     <s>{price.old}</s>
                   </div>
                 )}
-                <p className="offer-until"><span className="excl" aria-hidden>!</span>Заявки по льготной стоимости принимаются до 30 октября</p>
+                <p className="offer-until"><span className="excl" aria-hidden>!</span>Скидка на премиум план действует до 30 октября</p>
                 <LeadForm />
                 <p className="fine">{price.note}</p>
               </div>

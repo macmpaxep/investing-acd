@@ -20,6 +20,7 @@ export default function Tariffs() {
               {p.price} <small>{p.period}</small>
             </div>
           )}
+          {tariffs.showPrices && "perMonth" in p && p.perMonth && <span className="plan-permonth">{p.perMonth}</span>}
           <ul>
             {p.features.map((f) => (
               <li key={f}>
@@ -31,6 +32,14 @@ export default function Tariffs() {
               </li>
             ))}
           </ul>
+          {"bonus" in p && p.bonus && (
+            <div className="plan-bonus">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <path d="M12 2.5l2.3 6.2 6.2 2.3-6.2 2.3L12 19.5l-2.3-6.2L3.5 11l6.2-2.3L12 2.5z" fill="currentColor" />
+              </svg>
+              <span>{p.bonus}</span>
+            </div>
+          )}
           <button type="button" className={`btn btn-block ${p.highlight ? "btn-accent" : "btn-ghost"}`} onClick={() => choose(p.id)}>
             Выбрать «{p.name}»
           </button>

@@ -132,9 +132,9 @@ export default function Home() {
                 материалы остаются у вас <strong>навсегда и бесплатно</strong>.
               </p>
               <div className="hero-cta">
-                <a href="#price" className="btn btn-accent">
+                <ScrollLink to="plan-premium" className="btn btn-accent">
                   Поступить
-                </a>
+                </ScrollLink>
                 <a href="#program" className="btn btn-ghost">
                   Смотреть программу
                 </a>

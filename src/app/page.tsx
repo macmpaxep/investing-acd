@@ -3,6 +3,7 @@ import Faq from "@/components/Faq";
 import LeadForm from "@/components/LeadForm";
 import Tariffs from "@/components/Tariffs";
 import ScrollLink from "@/components/ScrollLink";
+import ResultsGallery from "@/components/ResultsGallery";
 import FloatingDice from "@/components/FloatingDice";
 import {
   brand,
@@ -138,6 +139,7 @@ export default function Home() {
                 <a href="#program" className="btn btn-ghost">
                   Смотреть программу
                 </a>
+                <ResultsGallery />
               </div>
               <ul className="hero-points">
                 <li><Tick /> Практика на реальных компаниях</li>

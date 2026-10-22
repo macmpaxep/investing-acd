@@ -100,7 +100,8 @@ p { color: var(--muted); }
 .glow-b { width: 420px; height: 420px; bottom: -200px; left: -140px; background: rgba(200, 245, 96, .5); }
 .glow-c { width: 600px; height: 600px; top: -10%; right: -10%; background: rgba(11, 138, 95, .35); }
 .hero-grid { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
-.hero-cta { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero-cta { display: inline-grid; grid-template-columns: auto auto; gap: 14px; }
+.hero-cta .btn-results { grid-column: 1 / -1; }
 .hero-points { display: grid; gap: .55rem; margin-top: 2rem; color: var(--muted); font-size: .98rem; }
 .hero-points li, .module ul li, .vault li, .price-list li, .fit li { display: flex; gap: .65rem; align-items: flex-start; }
 .tick { flex: none; margin-top: 3px; color: var(--accent); }
@@ -234,6 +235,7 @@ p { color: var(--muted); }
   .module-idx { font-size: 2.4rem; }
   .module ul { grid-template-columns: 1fr; }
   .price-card { padding: 24px; }
+  .hero-cta { display: grid; grid-template-columns: 1fr; }
   .hero-cta .btn { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -340,3 +342,32 @@ h2.wide { max-width: 30ch; }
 .plan-badge-sale { top: 54px; background: #ff6b5e; color: #fff; box-shadow: 0 8px 18px -8px rgba(255, 107, 94, .8); }
 
 .plan-old { display: block; margin-bottom: .15rem; font-size: 1.15rem; font-weight: 600; color: #8fb3a3; text-decoration-thickness: 2px; text-decoration-color: #ff6b5e; }
+
+/* results gallery */
+.btn-results { gap: .6rem; background: #0e2a22; color: var(--lime); border-color: rgba(200, 245, 96, .35); box-shadow: 0 12px 28px -14px rgba(14, 42, 34, .8); }
+.btn-results:hover { background: #12372c; }
+.rg-overlay { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 16px; background: rgba(4, 14, 11, .82); backdrop-filter: blur(8px); animation: rg-fade .25s ease; }
+.rg-panel { position: relative; width: min(560px, 100%); max-height: 100%; padding: 18px 18px 16px; border-radius: 26px; background: linear-gradient(180deg, #14382d, #0a241c); border: 1px solid rgba(255, 255, 255, .12); box-shadow: 0 50px 100px -30px #000; color: #eef7f2; animation: rg-pop .3s ease; }
+.rg-head { display: flex; justify-content: space-between; align-items: center; padding: 0 44px 12px 4px; }
+.rg-head b { font-size: 1.05rem; }
+.rg-head span { color: #a9c9bb; font-size: .9rem; font-variant-numeric: tabular-nums; }
+.rg-close { position: absolute; top: 14px; right: 14px; display: grid; place-items: center; width: 36px; height: 36px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .1); color: #fff; cursor: pointer; }
+.rg-close:hover { background: rgba(255, 255, 255, .2); }
+.rg-stage { position: relative; }
+.rg-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; border-radius: 18px; }
+.rg-track::-webkit-scrollbar { display: none; }
+.rg-slide { flex: 0 0 100%; margin: 0; scroll-snap-align: center; position: relative; }
+.rg-slide img { display: block; width: 100%; height: auto; border-radius: 18px; user-select: none; }
+.rg-slide figcaption { margin-top: 10px; text-align: center; font-size: .8rem; font-weight: 700; letter-spacing: .06em; color: #a9c9bb; }
+.rg-arrow { position: absolute; top: 50%; z-index: 2; display: grid; place-items: center; width: 40px; height: 40px; margin-top: -20px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .92); color: #0e1a16; cursor: pointer; box-shadow: 0 8px 20px -8px rgba(0, 0, 0, .7); transition: opacity .2s, transform .2s; }
+.rg-arrow:hover:not(:disabled) { transform: scale(1.08); }
+.rg-arrow:disabled { opacity: .25; cursor: default; }
+.rg-prev { left: -8px; }
+.rg-next { right: -8px; }
+.rg-dots { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; margin: 14px 0 8px; }
+.rg-dots i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255, 255, 255, .25); cursor: pointer; transition: background .2s, width .2s; }
+.rg-dots i.on { width: 20px; border-radius: 999px; background: var(--lime); }
+.rg-note { margin: 0; text-align: center; font-size: .75rem; color: #8fb3a3; }
+@keyframes rg-fade { from { opacity: 0; } }
+@keyframes rg-pop { from { opacity: 0; transform: translateY(14px) scale(.97); } }
+@media (max-width: 680px) { .rg-arrow { display: none; } .rg-panel { padding: 14px 12px 12px; border-radius: 22px; } }

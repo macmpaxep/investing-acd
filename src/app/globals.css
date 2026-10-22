@@ -371,3 +371,7 @@ h2.wide { max-width: 30ch; }
 @keyframes rg-fade { from { opacity: 0; } }
 @keyframes rg-pop { from { opacity: 0; transform: translateY(14px) scale(.97); } }
 @media (max-width: 680px) { .rg-arrow { display: none; } .rg-panel { padding: 14px 12px 12px; border-radius: 22px; } }
+
+.btn-results-plan { margin-bottom: .8rem; background: #ffffff; color: #0e1a16; border-color: #ffffff; box-shadow: 0 10px 22px -10px rgba(0, 0, 0, .6); }
+.btn-results-plan:hover { background: #eaf7ef; border-color: #eaf7ef; }
+.btn-results-plan svg { color: #0b8a5f; }

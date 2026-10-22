@@ -1,6 +1,7 @@
 "use client";
 
 import { tariffs } from "@/lib/content";
+import ResultsGallery from "@/components/ResultsGallery";
 
 export default function Tariffs() {
   function choose(id: string) {
@@ -44,6 +45,7 @@ export default function Tariffs() {
               <span>{p.bonus}</span>
             </div>
           )}
+          {"results" in p && p.results && <ResultsGallery className="btn-block btn-results-plan" />}
           <button type="button" className={`btn btn-block ${p.highlight ? "btn-accent" : "btn-ghost"}`} onClick={() => choose(p.id)}>
             Выбрать «{p.name}»
           </button>

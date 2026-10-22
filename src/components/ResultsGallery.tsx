@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 const SLIDES = [
   { t: "IONQ", side: "Long" },
@@ -18,7 +19,7 @@ const SLIDES = [
   { t: "AMD", side: "Long" },
 ];
 
-export default function ResultsGallery() {
+export default function ResultsGallery({ className = "" }: { className?: string }) {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const track = useRef<HTMLDivElement>(null);
@@ -53,7 +54,7 @@ export default function ResultsGallery() {
 
   return (
     <>
-      <button type="button" className="btn btn-results" onClick={() => { setIndex(0); setOpen(true); }}>
+      <button type="button" className={`btn btn-results ${className}`} onClick={() => { setIndex(0); setOpen(true); }}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
           <path d="M3 17l6-6 4 4 8-8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
           <path d="M15 7h6v6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -61,7 +62,7 @@ export default function ResultsGallery() {
         Результаты учеников
       </button>
 
-      {open && (
+      {open && createPortal(
         <div className="rg-overlay" role="dialog" aria-modal="true" aria-label="Результаты учеников" onClick={() => setOpen(false)}>
           <div className="rg-panel" onClick={(e) => e.stopPropagation()}>
             <button type="button" className="rg-close" aria-label="Закрыть" onClick={() => setOpen(false)}>
@@ -95,7 +96,8 @@ export default function ResultsGallery() {
             </div>
             <p className="rg-note">Результаты отдельных сделок. Прошлые результаты не гарантируют доходность в будущем.</p>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );

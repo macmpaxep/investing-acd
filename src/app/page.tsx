@@ -493,7 +493,6 @@ export default function Home() {
               </span>
             </a>
             <div className="footer-links">
-              <a href={brand.whatsapp}>WhatsApp</a>
               <a href={brand.telegram}>Telegram</a>
             </div>
           </div>

@@ -17,7 +17,7 @@ export const brand = {
     "Изучает усиленно психологию в области финансов",
   ],
   whatsapp: "https://wa.me/447456007756",
-  telegram: "https://t.me/fundbaker?text=Хочу консультацию, узнать про акцию стоимостью 0.9$. Как их купить?",
+  telegram: "https://t.me/fundbaker?text=Хочу консультацию",
 };
 
 // show: false — цены скрыты на сайте; поставьте true, чтобы вернуть.

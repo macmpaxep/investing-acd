@@ -1,7 +1,7 @@
 import LeadForm from "@/components/LeadForm";
 import ResultsGallery from "@/components/ResultsGallery";
 import Modal from "@/components/Modal";
-import { brand, price, modules, disclaimer } from "@/lib/content";
+import { brand, price, disclaimer } from "@/lib/content";
 
 function Tick() {
   return (
@@ -14,13 +14,13 @@ function Tick() {
 
 function HeroChart() {
   return (
-    <div className="hero-shot">
+    <div className="shots">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="shot shot-a" src="/portfolio.jpg" alt="Стоимость портфеля и график доходности" />
+      <img className="shots-img shots-a" src="/portfolio.jpg" alt="Стоимость портфеля и график доходности" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="shot shot-c" src="/trade.jpg" alt="Закрытая сделка по IONQ" />
+      <img className="shots-img shots-c" src="/trade.jpg" alt="Закрытая сделка по IONQ" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="shot shot-b" src="/positions.jpg" alt="Позиции в портфеле" />
+      <img className="shots-img shots-b" src="/positions.jpg" alt="Позиции в портфеле" />
     </div>
   );
 }
@@ -70,29 +70,6 @@ export default function Home() {
               <div className="hero-cta">
                 <Modal label="Подписаться" triggerClassName="btn btn-accent" title="Заявка на подписку">
                   <SubscribeContent />
-                </Modal>
-                <Modal label="Смотреть программу" triggerClassName="btn btn-ghost" title="Программа">
-                  <h2 className="modal-title">Шесть модулей за год</h2>
-                  <div className="timeline">
-                    {modules.map((m, i) => (
-                      <article className="module" key={m.title}>
-                        <div className="module-side">
-                          <span className="module-months">{m.months}</span>
-                          <span className="module-idx">{String(i + 1).padStart(2, "0")}</span>
-                        </div>
-                        <div className="module-body">
-                          <h3>{m.title}</h3>
-                          <ul>
-                            {m.points.map((p) => (
-                              <li key={p}>
-                                <Tick /> {p}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
                 </Modal>
                 <ResultsGallery />
               </div>

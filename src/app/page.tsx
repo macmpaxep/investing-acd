@@ -1,7 +1,9 @@
-import LeadForm from "@/components/LeadForm";
 import ResultsGallery from "@/components/ResultsGallery";
-import Modal from "@/components/Modal";
-import { brand, price, disclaimer } from "@/lib/content";
+import { brand, disclaimer } from "@/lib/content";
+
+const WHATSAPP_URL = `https://wa.me/447453549621?text=${encodeURIComponent(
+  "Хочу узнать про акции за 0.9$"
+)}`;
 
 function Tick() {
   return (
@@ -44,9 +46,14 @@ export default function Home() {
       <header className="header">
         <div className="container header-in">
           <Logo />
-          <Modal label="Подписаться" triggerClassName="btn btn-accent btn-sm" title="Заявка на подписку">
-            <SubscribeContent />
-          </Modal>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-accent btn-sm"
+          >
+            Подписаться
+          </a>
         </div>
       </header>
 
@@ -68,9 +75,14 @@ export default function Home() {
               </p>
 
               <div className="hero-cta">
-                <Modal label="Подписаться" triggerClassName="btn btn-accent" title="Заявка на подписку">
-                  <SubscribeContent />
-                </Modal>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-accent"
+                >
+                  Подписаться
+                </a>
                 <ResultsGallery />
               </div>
 
@@ -89,23 +101,6 @@ export default function Home() {
           <p className="disclaimer">{disclaimer}</p>
         </div>
       </footer>
-    </div>
-  );
-}
-
-function SubscribeContent() {
-  return (
-    <div className="price-card price-card-modal">
-      <span className="badge">Запись</span>
-      {price.show && (
-        <div className="price-row">
-          <b>{price.current}</b>
-          <span className="instead">вместо</span>
-          <s>{price.old}</s>
-        </div>
-      )}
-      <LeadForm />
-      <p className="fine">{price.note}</p>
     </div>
   );
 }

@@ -376,13 +376,20 @@ h2.wide { max-width: 30ch; }
 .btn-results-plan:hover { background: #eaf7ef; border-color: #eaf7ef; }
 .btn-results-plan svg { color: #0b8a5f; }
 
-/* Р”РѕР±Р°РІРёС‚СЊ РІ РєРѕРЅРµС† globals.css */
+/* Добавить в конец globals.css.
+   Если вставляли прошлую версию этого блока, удалите её и вставьте эту. */
 
+/* ---------- каркас: один экран ---------- */
 .one-screen {
-  height: 100svh;
+  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+.one-screen .header {
+  position: relative;
+  flex: none;
 }
 .one-screen-main {
   flex: 1;
@@ -396,31 +403,66 @@ h2.wide { max-width: 30ch; }
   display: flex;
   align-items: center;
 }
-.hero-one .hero-grid {
+.hero-one .container {
   width: 100%;
+}
+
+/* ---------- десктоп: скрины слева, текст справа ---------- */
+.hero-one .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 64px);
   align-items: center;
 }
+.hero-one .hero-text {
+  min-width: 0;
+}
 .hero-one h1 {
-  font-size: clamp(26px, 3.4vw, 46px);
-  line-height: 1.1;
-  margin: 10px 0 12px;
+  font-size: clamp(26px, 2.9vw, 44px);
+  line-height: 1.12;
+  margin: 10px 0 14px;
+  overflow-wrap: break-word;
 }
 .hero-one .lead {
-  font-size: clamp(14px, 1.2vw, 17px);
-  margin-bottom: 16px;
+  font-size: clamp(14px, 1.15vw, 17px);
+  margin: 0 0 18px;
 }
 .hero-one .hero-cta {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 .hero-one .hero-points {
+  display: grid;
   gap: 6px;
+  margin: 0;
+  padding: 0;
 }
 
-/* СЃС‚СЂРѕРєР° СЃ РґРёСЃРєР»РµР№РјРµСЂРѕРј РІРЅРёР·Сѓ */
+/* коллаж из скринов */
+.shots {
+  position: relative;
+  height: min(64vh, 620px);
+  height: min(64dvh, 620px);
+  aspect-ratio: 1 / 1.02;
+  max-width: 100%;
+  margin-inline: auto;
+}
+.shots-img {
+  position: absolute;
+  display: block;
+  height: auto;
+  border-radius: 22px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.22);
+}
+.shots-a { top: 0;    right: 0; width: 64%; transform: rotate(1deg);  z-index: 1; }
+.shots-c { top: 20%;  left: 0;  width: 54%; transform: rotate(-5deg); z-index: 3; }
+.shots-b { bottom: 0; right: 0; width: 62%; transform: rotate(2deg);  z-index: 2; }
+
+/* ---------- строка с дисклеймером ---------- */
 .disclaimer-bar {
+  flex: none;
   padding: 6px 0;
   border-top: 1px solid rgba(128, 128, 128, 0.2);
 }
@@ -435,7 +477,7 @@ h2.wide { max-width: 30ch; }
   overflow: hidden;
 }
 
-/* РјРѕРґР°Р»СЊРЅС‹Рµ РѕРєРЅР° */
+/* ---------- модальные окна ---------- */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -450,7 +492,8 @@ h2.wide { max-width: 30ch; }
   position: relative;
   width: 100%;
   max-width: 560px;
-  max-height: 90svh;
+  max-height: 90vh;
+  max-height: 90dvh;
   overflow-y: auto;
   background: var(--bg, #fff);
   color: var(--text, inherit);
@@ -468,34 +511,72 @@ h2.wide { max-width: 30ch; }
   cursor: pointer;
   color: inherit;
 }
-.modal-title {
-  margin: 0 0 16px;
-  font-size: 22px;
-}
-.price-card-modal {
-  box-shadow: none;
-  border: 0;
-  padding: 0;
-  background: transparent;
-}
+.modal-title { margin: 0 0 16px; font-size: 22px; }
+.price-card-modal { box-shadow: none; border: 0; padding: 0; background: transparent; }
 
-/* РјРѕР±РёР»СЊРЅР°СЏ РІРµСЂСЃРёСЏ: РІСЃС‘ РЅР° РѕРґРЅРѕРј СЌРєСЂР°РЅРµ */
+/* ---------- телефон: скрины рядом сверху, текст под ними ---------- */
 @media (max-width: 860px) {
+  .hero.hero-one {
+    align-items: flex-start;
+    padding-top: 12px;
+  }
   .hero-one .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
   }
-  .hero-one .hero-shot {
-    height: 24svh;
-    min-height: 0;
+
+  .shots {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    height: 24vh;
+    height: 24dvh;
+    aspect-ratio: auto;
   }
-  .hero-one .hero-points li:nth-child(n + 3) {
-    display: none;
+  .shots-img {
+    position: static;
+    transform: none;
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
   }
+
+  .hero-one h1 { font-size: clamp(22px, 6.4vw, 30px); margin: 8px 0 10px; }
   .hero-one .lead {
+    font-size: 14px;
+    margin-bottom: 12px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  /* две кнопки в ряд */
+  .hero-one .hero-cta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 0;
+  }
+  .hero-one .hero-cta .btn,
+  .hero-one .hero-cta button {
+    width: 100%;
+    padding: 12px 10px;
+    font-size: 14px;
+    justify-content: center;
+  }
+
+  .hero-one .hero-points { display: none; }
+}
+
+/* низкие экраны (маленькие телефоны, ландшафт) */
+@media (max-width: 860px) and (max-height: 700px) {
+  .shots { height: 17vh; height: 17dvh; }
+  .hero-one .lead { -webkit-line-clamp: 2; }
 }

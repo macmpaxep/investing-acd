@@ -104,10 +104,6 @@ function SubscribeContent() {
           <s>{price.old}</s>
         </div>
       )}
-      <p className="offer-until">
-        <span className="excl" aria-hidden>!</span>
-        Скидка на премиум план действует до 30 октября
-      </p>
       <LeadForm />
       <p className="fine">{price.note}</p>
     </div>

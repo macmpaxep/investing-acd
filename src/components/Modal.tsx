@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 
 type Props = {
   label: string;
@@ -11,6 +12,9 @@ type Props = {
 
 export default function Modal({ label, triggerClassName, title, children }: Props) {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     if (!open) return;
@@ -31,27 +35,32 @@ export default function Modal({ label, triggerClassName, title, children }: Prop
       <button type="button" className={triggerClassName} onClick={() => setOpen(true)}>
         {label}
       </button>
-      {open && (
-        <div className="modal-overlay" onClick={() => setOpen(false)}>
-          <div
-            className="modal"
-            role="dialog"
-            aria-modal="true"
-            aria-label={title}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              className="modal-close"
-              aria-label="Закрыть"
-              onClick={() => setOpen(false)}
+      {open &&
+        mounted &&
+        // Портал в body: иначе у кнопки в шапке (backdrop-filter / sticky)
+        // окно позиционируется относительно шапки, а не экрана
+        createPortal(
+          <div className="modal-overlay" onClick={() => setOpen(false)}>
+            <div
+              className="modal"
+              role="dialog"
+              aria-modal="true"
+              aria-label={title}
+              onClick={(e) => e.stopPropagation()}
             >
-              ×
-            </button>
-            {children}
-          </div>
-        </div>
-      )}
+              <button
+                type="button"
+                className="modal-close"
+                aria-label="Закрыть"
+                onClick={() => setOpen(false)}
+              >
+                ×
+              </button>
+              {children}
+            </div>
+          </div>,
+          document.body
+        )}
     </>
   );
 }

@@ -427,12 +427,30 @@ h2.wide { max-width: 30ch; }
   font-size: clamp(14px, 1.15vw, 17px);
   margin: 0 0 18px;
 }
+
+/* две кнопки одинаковой ширины и высоты */
 .hero-one .hero-cta {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
-  margin-bottom: 16px;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 0 16px;
 }
+.hero-one .hero-cta > * {
+  grid-column: auto !important;
+  width: 100% !important;
+  min-width: 0;
+  min-height: 54px;
+  margin: 0 !important;
+  padding-inline: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+}
+
 .hero-one .hero-points {
   display: grid;
   gap: 6px;
@@ -481,7 +499,7 @@ h2.wide { max-width: 30ch; }
 .modal-overlay {
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: 1000;
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
@@ -491,28 +509,39 @@ h2.wide { max-width: 30ch; }
 .modal {
   position: relative;
   width: 100%;
-  max-width: 560px;
-  max-height: 90vh;
-  max-height: 90dvh;
+  max-width: 480px;
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
   overflow-y: auto;
   background: var(--bg, #fff);
   color: var(--text, inherit);
   border-radius: 20px;
-  padding: 28px 24px 24px;
+  padding: 24px 24px 22px;
 }
 .modal-close {
   position: absolute;
-  top: 10px;
-  right: 14px;
+  top: 12px;
+  right: 12px;
+  left: auto;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: grid;
+  place-items: center;
   background: none;
   border: 0;
-  font-size: 28px;
+  font-size: 26px;
   line-height: 1;
   cursor: pointer;
   color: inherit;
 }
 .modal-title { margin: 0 0 16px; font-size: 22px; }
 .price-card-modal { box-shadow: none; border: 0; padding: 0; background: transparent; }
+
+/* в форме не показываем выбор типа подписки (значение по умолчанию уходит как раньше) */
+.modal select { display: none !important; }
+.modal :not(form):has(> select) { display: none !important; }
+.modal label:has(select) { display: none !important; }
 
 /* ---------- телефон: скрины рядом сверху, текст под ними ---------- */
 @media (max-width: 860px) {
@@ -557,22 +586,19 @@ h2.wide { max-width: 30ch; }
     overflow: hidden;
   }
 
-  /* две кнопки в ряд */
-  .hero-one .hero-cta {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-bottom: 0;
-  }
-  .hero-one .hero-cta .btn,
-  .hero-one .hero-cta button {
-    width: 100%;
-    padding: 12px 10px;
+  .hero-one .hero-cta { max-width: none; gap: 8px; margin-bottom: 0; }
+  .hero-one .hero-cta > * {
+    min-height: 50px;
+    padding-inline: 8px;
     font-size: 14px;
-    justify-content: center;
   }
 
   .hero-one .hero-points { display: none; }
+}
+
+/* узкие телефоны */
+@media (max-width: 380px) {
+  .hero-one .hero-cta > * { font-size: 13px; }
 }
 
 /* низкие экраны (маленькие телефоны, ландшафт) */
